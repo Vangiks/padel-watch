@@ -8,7 +8,7 @@ struct SetupFlowView: View {
     let onResume: () -> Void
     let onStart: (MatchSettings) -> Void
 
-    private enum Step: Hashable { case deuce, sets, points, server }
+    private enum Step: Hashable { case deuce, sets, points, server, settings }
 
     @State private var path: [Step] = []
     @State private var isClassic = true
@@ -17,18 +17,6 @@ struct SetupFlowView: View {
     @State private var totalPoints = 24
 
     var body: some View {
-        // Стартовый экран листается так же, как экран счёта: основная страница
-        // (выбор формата) и смах влево → Настройки.
-        TabView {
-            wizardPage
-            NavigationStack {
-                SettingsView(settings: AppSettings.shared)
-            }
-        }
-        .tabViewStyle(.page)
-    }
-
-    private var wizardPage: some View {
         NavigationStack(path: $path) {
             List {
                 if let resumable {
@@ -53,12 +41,21 @@ struct SetupFlowView: View {
                 }
             }
             .navigationTitle("Падел")
+            .toolbar {
+                // Шестерёнка → Настройки. Смах влево оставлен свободным под будущую историю матчей.
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { path.append(.settings) } label: {
+                        Image(systemName: "gearshape.fill")
+                    }
+                }
+            }
             .navigationDestination(for: Step.self) { step in
                 switch step {
                 case .deuce: deuceStep
                 case .sets: setsStep
                 case .points: pointsStep
                 case .server: serverStep
+                case .settings: SettingsView(settings: AppSettings.shared)
                 }
             }
         }
