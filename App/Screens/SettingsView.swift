@@ -15,7 +15,7 @@ struct SettingsView: View {
             }
 
             Toggle(isOn: $settings.trackActivity) {
-                Label("Отслеживать активность", systemImage: "heart.fill")
+                Label("Активность", systemImage: "heart.fill")
             }
         }
         .navigationTitle("Настройки")
