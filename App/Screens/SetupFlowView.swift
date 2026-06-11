@@ -99,7 +99,7 @@ struct SetupFlowView: View {
                     }
                 }
                 // Значение показываем внутри степпера; Digital Crown крутит его же.
-                Stepper(value: $totalPoints, in: 4...80, step: 2) {
+                Stepper(value: $totalPoints, in: 4...80, step: 1) {
                     Text("\(totalPoints)")
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .frame(maxWidth: .infinity)
