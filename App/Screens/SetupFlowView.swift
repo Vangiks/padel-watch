@@ -32,8 +32,12 @@ struct SetupFlowView: View {
                     }
                 }
                 Section("Формат") {
-                    Button("Классика") { isClassic = true; path = [.deuce] }
-                    Button("Турнир") { isClassic = false; path = [.points] }
+                    Button { isClassic = true; path = [.deuce] } label: {
+                        Label("Классика", systemImage: "figure.tennis")
+                    }
+                    Button { isClassic = false; path = [.points] } label: {
+                        Label("Турнир", systemImage: "trophy.fill")
+                    }
                 }
             }
             .navigationTitle("Падел")
@@ -53,9 +57,11 @@ struct SetupFlowView: View {
     private var deuceStep: some View {
         List {
             ForEach(DeuceMode.presets, id: \.title) { mode in
-                Button(mode.title) {
+                Button {
                     deuce = mode
                     path.append(.sets)
+                } label: {
+                    Label(mode.title, systemImage: mode.iconName)
                 }
             }
         }
@@ -64,8 +70,12 @@ struct SetupFlowView: View {
 
     private var setsStep: some View {
         List {
-            Button("1 сет") { numberOfSets = 1; path.append(.server) }
-            Button("3 сета") { numberOfSets = 3; path.append(.server) }
+            Button { numberOfSets = 1; path.append(.server) } label: {
+                Label("1 сет", systemImage: "1.circle.fill")
+            }
+            Button { numberOfSets = 3; path.append(.server) } label: {
+                Label("3 сета", systemImage: "3.circle.fill")
+            }
         }
         .navigationTitle("Сеты")
     }
@@ -91,8 +101,12 @@ struct SetupFlowView: View {
 
     private var serverStep: some View {
         List {
-            Button("Подаю я") { finish(server: .you) }
-            Button("Подаёт соперник") { finish(server: .opponent) }
+            Button { finish(server: .you) } label: {
+                Label("Подаю я", systemImage: "figure.tennis")
+            }
+            Button { finish(server: .opponent) } label: {
+                Label("Подаёт соперник", systemImage: "person.2.fill")
+            }
         }
         .navigationTitle("Первая подача")
     }

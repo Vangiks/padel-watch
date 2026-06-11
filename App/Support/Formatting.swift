@@ -29,6 +29,21 @@ extension DeuceMode {
             }
         }
     }
+
+    /// SF Symbol для пункта в мастере настройки.
+    var iconName: String {
+        switch self {
+        case .advantage:
+            return "infinity"
+        case .suddenDeath(let n):
+            switch n {
+            case 1: return "star.fill"
+            case 2: return "star.leadinghalf.filled"
+            case 3: return "sparkles"
+            default: return "circle.fill"
+            }
+        }
+    }
 }
 
 /// Длительность в формате m:ss.
