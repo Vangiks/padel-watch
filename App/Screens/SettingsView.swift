@@ -13,6 +13,10 @@ struct SettingsView: View {
             } label: {
                 Label("Язык", systemImage: "globe")
             }
+
+            Toggle(isOn: $settings.trackActivity) {
+                Label("Отслеживать активность", systemImage: "heart.fill")
+            }
         }
         .navigationTitle("Настройки")
     }

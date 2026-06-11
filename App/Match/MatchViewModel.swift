@@ -69,7 +69,7 @@ final class MatchViewModel {
 
     private func startWorkout() {
         #if os(watchOS)
-        guard !state.isFinished else { return }
+        guard AppSettings.shared.trackActivity, !state.isFinished else { return }
         Task {
             await workout.requestAuthorization()
             workout.start()

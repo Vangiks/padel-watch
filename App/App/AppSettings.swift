@@ -20,14 +20,26 @@ final class AppSettings {
     }
 
     var language: Language {
-        didSet { UserDefaults.standard.set(language.rawValue, forKey: Self.key) }
+        didSet { UserDefaults.standard.set(language.rawValue, forKey: Self.languageKey) }
     }
 
-    private static let key = "app.language"
+    /// Запускать ли workout-сессию HealthKit во время матча.
+    var trackActivity: Bool {
+        didSet { UserDefaults.standard.set(trackActivity, forKey: Self.activityKey) }
+    }
+
+    private static let languageKey = "app.language"
+    private static let activityKey = "app.trackActivity"
 
     init() {
-        let raw = UserDefaults.standard.string(forKey: Self.key) ?? Language.system.rawValue
+        let raw = UserDefaults.standard.string(forKey: Self.languageKey) ?? Language.system.rawValue
         language = Language(rawValue: raw) ?? .system
+        // По умолчанию включено; уважаем явно сохранённое значение.
+        if UserDefaults.standard.object(forKey: Self.activityKey) == nil {
+            trackActivity = true
+        } else {
+            trackActivity = UserDefaults.standard.bool(forKey: Self.activityKey)
+        }
     }
 
     /// Явная локаль для строк-хелперов; `nil` для системной.

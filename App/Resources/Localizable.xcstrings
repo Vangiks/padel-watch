@@ -76,6 +76,11 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } }
       }
     },
+    "Отслеживать активность" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Track activity" } }
+      }
+    },
     "Язык" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Language" } }
