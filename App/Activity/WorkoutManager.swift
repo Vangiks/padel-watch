@@ -18,7 +18,7 @@ import Observation
 /// методы тихо ничего не делают — приложение продолжает работать (важно для симулятора).
 @MainActor
 @Observable
-final class WorkoutManager {
+final class WorkoutManager: NSObject {
     private let healthStore = HKHealthStore()
     private var session: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
@@ -27,6 +27,9 @@ final class WorkoutManager {
     private(set) var heartRate: Double = 0
     private(set) var activeEnergy: Double = 0
     private(set) var isRunning = false
+
+    // Делегаты HealthKit требуют NSObject — отсюда наследование и super.init().
+    override init() { super.init() }
 
     var isAvailable: Bool { HKHealthStore.isHealthDataAvailable() }
 
