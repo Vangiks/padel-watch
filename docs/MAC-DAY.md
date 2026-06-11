@@ -12,9 +12,24 @@
 - [ ] Открой **Xcode** → согласись с лицензией, дождись установки компонентов.
 - [ ] Проверь, что установлен **watchOS Simulator**: Xcode → Settings → Components/Platforms →
       watchOS должен быть скачан. Если нет — поставь (это может занять время, делай первым).
-- [ ] Установи XcodeGen:
+- [ ] Установи **Homebrew** (на свежей macOS его нет):
       ```bash
-      brew install xcodegen
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ```
+      В конце установки выполни напечатанные «Next steps», либо вручную активируй:
+      ```bash
+      eval "$(/opt/homebrew/bin/brew shellenv)"   # Apple Silicon
+      # eval "$(/usr/local/bin/brew shellenv)"     # Intel
+      ```
+- [ ] Установи инструменты:
+      ```bash
+      brew install xcodegen gh
+      ```
+      **Без Homebrew** (Swift есть с Xcode):
+      ```bash
+      git clone https://github.com/yonaskolb/XcodeGen.git ~/XcodeGen
+      cd ~/XcodeGen && swift build -c release
+      # потом вместо `xcodegen generate` запускай: ~/XcodeGen/.build/release/xcodegen generate
       ```
 
 ## 1. Достать код (приватный репозиторий)
