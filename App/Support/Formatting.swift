@@ -1,14 +1,13 @@
-import Foundation
+import SwiftUI
 import ScoringEngine
 
-// Отображаемые строки для доменных типов.
-// `Text("...")` в SwiftUI локализуется автоматически (литерал = ключ в String Catalog).
-// Хелперы ниже возвращают String, поэтому оборачиваем их в `String(localized:)`,
-// чтобы они тоже подхватывали перевод из Localizable.xcstrings.
+// Подписи доменных типов как LocalizedStringKey — локализуются через окружение `\.locale`
+// (тот же надёжный путь, что и обычные `Text("...")`). Строковый хелпер с явной локалью
+// НЕ использовать: `String(localized:locale:)` берёт язык строки из системы, а не из выбранной локали.
 
 extension Team {
-    var shortName: String {
-        self == .you ? appLocalized("ты") : appLocalized("соперник")
+    var label: LocalizedStringKey {
+        self == .you ? "я" : "противник"
     }
 }
 
@@ -16,16 +15,16 @@ extension DeuceMode {
     /// Пресеты для мастера настройки (в порядке отображения).
     static let presets: [DeuceMode] = [.advantage, .goldenPoint, .goldenDouble, .starPoint]
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .advantage:
-            return appLocalized("Больше/меньше")
+            return "Больше/меньше"
         case .suddenDeath(let n):
             switch n {
-            case 1: return appLocalized("Золотой мяч")
-            case 2: return appLocalized("Золотой ×2")
-            case 3: return appLocalized("Star Point")
-            default: return appLocalized("Решающее на deuce \(n)")
+            case 1: return "Золотой мяч"
+            case 2: return "Золотой ×2"
+            case 3: return "Star Point"
+            default: return "Решающее на deuce \(n)"
             }
         }
     }

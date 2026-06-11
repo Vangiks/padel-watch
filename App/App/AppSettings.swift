@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 import Observation
 
 /// Глобальные настройки приложения (язык и т.д.), сохраняются в UserDefaults.
@@ -10,9 +10,9 @@ final class AppSettings {
         case system, ru, en
         var id: String { rawValue }
 
-        var displayName: String {
+        var displayName: LocalizedStringKey {
             switch self {
-            case .system: return appLocalized("Системный")
+            case .system: return "Системный"
             case .ru: return "Русский"
             case .en: return "English"
             }
@@ -51,12 +51,6 @@ final class AppSettings {
         }
     }
 
-    /// Локаль для применения в окружении и в `String(localized:locale:)`.
+    /// Локаль для применения в окружении (`\.locale`), через которое локализуются все `Text`.
     var resolvedLocale: Locale { locale ?? .autoupdatingCurrent }
-}
-
-/// Локализованная строка с учётом выбранного в приложении языка.
-/// Для `Text("...")` достаточно окружения `\.locale`; это — для мест, где строится `String`.
-func appLocalized(_ value: String.LocalizationValue) -> String {
-    String(localized: value, locale: AppSettings.shared.resolvedLocale)
 }

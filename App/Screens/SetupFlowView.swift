@@ -65,7 +65,7 @@ struct SetupFlowView: View {
 
     private var deuceStep: some View {
         List {
-            ForEach(DeuceMode.presets, id: \.title) { mode in
+            ForEach(DeuceMode.presets, id: \.iconName) { mode in
                 Button {
                     deuce = mode
                     path.append(.sets)
@@ -134,10 +134,10 @@ struct SetupFlowView: View {
         onStart(MatchSettings(format: format, firstServer: server))
     }
 
-    private func resumeSubtitle(_ engine: ScoringEngine) -> String {
+    private func resumeSubtitle(_ engine: ScoringEngine) -> LocalizedStringKey {
         let s = engine.state
         if s.kind == .classic {
-            return appLocalized("Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)")
+            return "Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)"
         } else {
             return "\(s.currentPoints.you) : \(s.currentPoints.opp)"
         }

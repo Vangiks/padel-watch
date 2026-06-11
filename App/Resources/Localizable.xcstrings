@@ -206,7 +206,7 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets %lld-%lld, games %lld-%lld" } }
       }
     },
-    "соперник" : {
+    "противник" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "opponent" } }
       }
@@ -216,7 +216,7 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Tournament" } }
       }
     },
-    "ты" : {
+    "я" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "you" } }
       }

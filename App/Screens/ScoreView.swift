@@ -74,7 +74,7 @@ struct ScoreView: View {
                 Text(display.text)
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .foregroundStyle(decisive ? Color.yellow : Color.primary)
-                Text(team.shortName)
+                Text(team.label)
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

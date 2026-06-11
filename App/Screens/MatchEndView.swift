@@ -30,12 +30,12 @@ struct MatchEndView: View {
         }
     }
 
-    private var title: String {
-        if state.isDraw { return appLocalized("Ничья") }
+    private var title: LocalizedStringKey {
+        if state.isDraw { return "Ничья" }
         switch state.matchWinner {
-        case .you: return appLocalized("Победа: ты")
-        case .opponent: return appLocalized("Победа: соперник")
-        case nil: return appLocalized("Матч окончен")
+        case .you: return "Победа: ты"
+        case .opponent: return "Победа: соперник"
+        case nil: return "Матч окончен"
         }
     }
 
@@ -56,23 +56,23 @@ struct MatchEndView: View {
 
     private func workoutSummary(_ s: WorkoutSummary) -> some View {
         VStack(spacing: 4) {
-            metric(Text("Длительность"), value: formattedDuration(s.duration))
+            metric(Text("Длительность"), Text(formattedDuration(s.duration)))
             if s.heartRateBPM > 0 {
-                metric(Text("Пульс"), value: appLocalized("\(Int(s.heartRateBPM)) уд/мин"))
+                metric(Text("Пульс"), Text("\(Int(s.heartRateBPM)) уд/мин"))
             }
             if s.activeEnergyKcal > 0 {
-                metric(Text("Калории"), value: appLocalized("\(Int(s.activeEnergyKcal)) ккал"))
+                metric(Text("Калории"), Text("\(Int(s.activeEnergyKcal)) ккал"))
             }
         }
         .font(.caption2)
         .foregroundStyle(.secondary)
     }
 
-    private func metric(_ label: Text, value: String) -> some View {
+    private func metric(_ label: Text, _ value: Text) -> some View {
         HStack {
             label
             Spacer()
-            Text(value).foregroundStyle(.primary)
+            value.foregroundStyle(.primary)
         }
     }
 }
