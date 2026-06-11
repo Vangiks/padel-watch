@@ -8,7 +8,7 @@ import ScoringEngine
 
 extension Team {
     var shortName: String {
-        self == .you ? String(localized: "ты") : String(localized: "соперник")
+        self == .you ? appLocalized("ты") : appLocalized("соперник")
     }
 }
 
@@ -19,13 +19,13 @@ extension DeuceMode {
     var title: String {
         switch self {
         case .advantage:
-            return String(localized: "Больше/меньше")
+            return appLocalized("Больше/меньше")
         case .suddenDeath(let n):
             switch n {
-            case 1: return String(localized: "Золотой мяч")
-            case 2: return String(localized: "Золотой ×2")
-            case 3: return String(localized: "Star Point")
-            default: return String(localized: "Решающее на deuce \(n)")
+            case 1: return appLocalized("Золотой мяч")
+            case 2: return appLocalized("Золотой ×2")
+            case 3: return appLocalized("Star Point")
+            default: return appLocalized("Решающее на deuce \(n)")
             }
         }
     }

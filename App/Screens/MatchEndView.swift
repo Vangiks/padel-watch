@@ -31,11 +31,11 @@ struct MatchEndView: View {
     }
 
     private var title: String {
-        if state.isDraw { return String(localized: "Ничья") }
+        if state.isDraw { return appLocalized("Ничья") }
         switch state.matchWinner {
-        case .you: return String(localized: "Победа: ты")
-        case .opponent: return String(localized: "Победа: соперник")
-        case nil: return String(localized: "Матч окончен")
+        case .you: return appLocalized("Победа: ты")
+        case .opponent: return appLocalized("Победа: соперник")
+        case nil: return appLocalized("Матч окончен")
         }
     }
 
@@ -58,10 +58,10 @@ struct MatchEndView: View {
         VStack(spacing: 4) {
             metric(Text("Длительность"), value: formattedDuration(s.duration))
             if s.heartRateBPM > 0 {
-                metric(Text("Пульс"), value: String(localized: "\(Int(s.heartRateBPM)) уд/мин"))
+                metric(Text("Пульс"), value: appLocalized("\(Int(s.heartRateBPM)) уд/мин"))
             }
             if s.activeEnergyKcal > 0 {
-                metric(Text("Калории"), value: String(localized: "\(Int(s.activeEnergyKcal)) ккал"))
+                metric(Text("Калории"), value: appLocalized("\(Int(s.activeEnergyKcal)) ккал"))
             }
         }
         .font(.caption2)

@@ -8,7 +8,7 @@ struct SetupFlowView: View {
     let onResume: () -> Void
     let onStart: (MatchSettings) -> Void
 
-    private enum Step: Hashable { case deuce, sets, points, server }
+    private enum Step: Hashable { case deuce, sets, points, server, settings }
 
     @State private var path: [Step] = []
     @State private var isClassic = true
@@ -39,6 +39,11 @@ struct SetupFlowView: View {
                         Label("Турнир", systemImage: "trophy.fill")
                     }
                 }
+                Section {
+                    Button { path.append(.settings) } label: {
+                        Label("Настройки", systemImage: "gearshape.fill")
+                    }
+                }
             }
             .navigationTitle("Падел")
             .navigationDestination(for: Step.self) { step in
@@ -47,6 +52,7 @@ struct SetupFlowView: View {
                 case .sets: setsStep
                 case .points: pointsStep
                 case .server: serverStep
+                case .settings: SettingsView(settings: AppSettings.shared)
                 }
             }
         }
@@ -123,7 +129,7 @@ struct SetupFlowView: View {
     private func resumeSubtitle(_ engine: ScoringEngine) -> String {
         let s = engine.state
         if s.kind == .classic {
-            return String(localized: "Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)")
+            return appLocalized("Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)")
         } else {
             return "\(s.currentPoints.you) : \(s.currentPoints.opp)"
         }

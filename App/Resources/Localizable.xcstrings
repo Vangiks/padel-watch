@@ -71,6 +71,21 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Match over" } }
       }
     },
+    "Настройки" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } }
+      }
+    },
+    "Язык" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Language" } }
+      }
+    },
+    "Системный" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "System" } }
+      }
+    },
     "Меню" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Menu" } }
