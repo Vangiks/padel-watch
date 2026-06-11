@@ -1,0 +1,64 @@
+# Fastlane: сборка watchOS-приложения и загрузка в TestFlight.
+# Запускается на macOS-раннере (CI) или на облачном Mac — НЕ на Linux
+# (gym/Xcode требуют macOS). Логику ScoringEngine тестирует отдельный Linux-job.
+#
+# watchOS в fastlane живёт под платформой :ios.
+default_platform(:ios)
+
+platform :ios do
+  # App Store Connect API key из переменных окружения (CI-секреты).
+  def asc_api_key
+    app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"),
+      issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_content: ENV.fetch("ASC_KEY_CONTENT"),  # base64-содержимое .p8
+      is_key_content_base64: true,
+      in_house: false
+    )
+  end
+
+  desc "Собрать watchOS-приложение и залить в TestFlight"
+  lane :beta do
+    api_key = asc_api_key
+
+    # Подготовка временного keychain на CI.
+    setup_ci
+
+    # 1. Сгенерировать .xcodeproj из project.yml.
+    sh("cd .. && xcodegen generate")
+
+    # 2. Подпись: сертификаты и профили хранятся в приватном git-репо (fastlane match),
+    #    создаются/обновляются через тот же API key — Mac под рукой не нужен.
+    match(
+      type: "appstore",
+      api_key: api_key,
+      readonly: false
+    )
+
+    # 3. Номер сборки = номер прогона CI (монотонно растёт).
+    build_number = ENV["GITHUB_RUN_NUMBER"] || ENV["BUILD_NUMBER"] || "1"
+
+    # 4. Архив и экспорт.
+    build_app(
+      project: "PadelWatch.xcodeproj",
+      scheme: "PadelWatchApp",
+      configuration: "Release",
+      export_method: "app-store",
+      # Привязываем профиль match к bundle id приложения.
+      export_options: {
+        signingStyle: "manual",
+        provisioningProfiles: {
+          ENV.fetch("APP_IDENTIFIER", "com.example.padelwatch") =>
+            "match AppStore #{ENV.fetch('APP_IDENTIFIER', 'com.example.padelwatch')}"
+        }
+      },
+      xcargs: "CURRENT_PROJECT_VERSION=#{build_number}"
+    )
+
+    # 5. Загрузка в TestFlight (без ожидания обработки — она идёт на стороне Apple).
+    upload_to_testflight(
+      api_key: api_key,
+      skip_waiting_for_build_processing: true
+    )
+  end
+end

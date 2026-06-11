@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:   # ручной запуск из вкладки Actions
+
+jobs:
+  # ── Слой логики: гоняется на бесплатном Linux-раннере, быстрый фидбек ──
+  engine-tests:
+    name: ScoringEngine tests (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.0"
+      - name: Run unit tests
+        run: swift test --package-path ScoringEngine
+
+  # ── Слой приложения: macOS-раннер, сборка watchOS и заливка в TestFlight ──
+  testflight:
+    name: Build & upload to TestFlight
+    needs: engine-tests
+    runs-on: macos-14
+    # Деплой только с main (PR-ы только тестируют логику).
+    if: github.ref == 'refs/heads/main'
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+      DEVELOPMENT_TEAM: ${{ secrets.DEVELOPMENT_TEAM }}
+      APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
+      MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build & upload
+        run: bundle exec fastlane beta

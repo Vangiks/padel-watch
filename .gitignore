@@ -1,0 +1,26 @@
+# Swift / SwiftPM
+.build/
+ScoringEngine/.build/
+*.xcodeproj          # генерируется из project.yml через XcodeGen — в git не храним
+*.xcworkspace
+DerivedData/
+
+# XcodeGen генерирует Info.plist приложения
+App/Info.plist
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+vendor/bundle/
+
+# Подпись (никогда не коммитим ключи!)
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+
+# macOS / Xcode
+.DS_Store
+xcuserdata/
