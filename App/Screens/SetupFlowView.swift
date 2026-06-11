@@ -90,21 +90,26 @@ struct SetupFlowView: View {
     }
 
     private var pointsStep: some View {
-        VStack(spacing: 8) {
-            Text("\(totalPoints)")
-                .font(.system(size: 44, weight: .bold, design: .rounded))
-            HStack {
-                ForEach([16, 24, 32], id: \.self) { preset in
-                    Button("\(preset)") { totalPoints = preset }
-                        .buttonStyle(.bordered)
+        ScrollView {
+            VStack(spacing: 10) {
+                HStack(spacing: 6) {
+                    ForEach([16, 24, 32], id: \.self) { preset in
+                        Button("\(preset)") { totalPoints = preset }
+                            .buttonStyle(.bordered)
+                    }
                 }
+                // Значение показываем внутри степпера; Digital Crown крутит его же.
+                Stepper(value: $totalPoints, in: 4...80, step: 2) {
+                    Text("\(totalPoints)")
+                        .font(.system(size: 32, weight: .bold, design: .rounded))
+                        .frame(maxWidth: .infinity)
+                        .minimumScaleFactor(0.6)
+                }
+                Button("Далее") { path.append(.server) }
+                    .buttonStyle(.borderedProminent)
             }
-            Stepper("Очки до", value: $totalPoints, in: 4...80, step: 2)
-                .labelsHidden()
-            Button("Далее") { path.append(.server) }
-                .buttonStyle(.borderedProminent)
+            .padding(.horizontal, 6)
         }
-        .padding(.horizontal, 6)
         .navigationTitle("Очки")
     }
 
