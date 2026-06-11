@@ -2,17 +2,25 @@ import SwiftUI
 import ScoringEngine
 
 /// Боевой экран счёта: верхняя строка статуса, две крупные зоны-тапа (лево=ты, право=соперник),
-/// нижний ряд кнопок (undo · пауза · redo). При завершении — экран итога.
+/// нижний ряд кнопок (undo · пауза · redo). Смах влево → страница меню с выходом из матча.
+/// При завершении — экран итога.
 struct ScoreView: View {
     let vm: MatchViewModel
     let onNewMatch: () -> Void
+    let onExit: () -> Void
+
+    @State private var showExitConfirm = false
 
     var body: some View {
         if vm.state.isFinished {
             MatchEndView(state: vm.state, summary: vm.summary, onNewMatch: onNewMatch)
         } else {
-            scoringScreen
-                .overlay { if vm.isPaused { pauseOverlay } }
+            TabView {
+                scoringScreen
+                    .overlay { if vm.isPaused { pauseOverlay } }
+                menuPage
+            }
+            .tabViewStyle(.page)
         }
     }
 
@@ -105,6 +113,26 @@ struct ScoreView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
+        }
+    }
+
+    // MARK: Страница меню (смах влево)
+
+    private var menuPage: some View {
+        VStack(spacing: 12) {
+            Text("Меню").font(.headline)
+
+            Button(role: .destructive) {
+                showExitConfirm = true
+            } label: {
+                Label("Выйти из матча", systemImage: "xmark.circle.fill")
+            }
+            .buttonStyle(.bordered)
+        }
+        .padding()
+        .confirmationDialog("Выйти из матча?", isPresented: $showExitConfirm, titleVisibility: .visible) {
+            Button("Выйти", role: .destructive) { onExit() }
+            Button("Отмена", role: .cancel) {}
         }
     }
 }

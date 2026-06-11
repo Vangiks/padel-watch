@@ -71,6 +71,31 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Match over" } }
       }
     },
+    "Меню" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Menu" } }
+      }
+    },
+    "Выйти" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exit" } }
+      }
+    },
+    "Выйти из матча" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exit match" } }
+      }
+    },
+    "Выйти из матча?" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Exit match?" } }
+      }
+    },
+    "Отмена" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } }
+      }
+    },
     "Ничья" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Draw" } }

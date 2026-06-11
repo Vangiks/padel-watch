@@ -12,7 +12,11 @@ struct RootView: View {
                 onStart: { coordinator.start($0) }
             )
         case .match(let vm):
-            ScoreView(vm: vm, onNewMatch: { coordinator.newMatch() })
+            ScoreView(
+                vm: vm,
+                onNewMatch: { coordinator.newMatch() },
+                onExit: { coordinator.exitMatch() }
+            )
         }
     }
 }

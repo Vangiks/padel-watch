@@ -36,6 +36,15 @@ final class AppCoordinator {
     }
 
     func newMatch() {
+        if case .match(let vm) = screen { vm.stopWorkout() }
+        store.clear()
+        resumable = nil
+        screen = .setup
+    }
+
+    /// Полный выход из идущего матча (смах влево → меню → «Выйти»).
+    func exitMatch() {
+        if case .match(let vm) = screen { vm.stopWorkout() }
         store.clear()
         resumable = nil
         screen = .setup

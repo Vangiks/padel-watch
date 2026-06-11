@@ -82,4 +82,11 @@ final class MatchViewModel {
         Task { self.summary = await workout.end() }
         #endif
     }
+
+    /// Завершить workout-сессию при досрочном выходе из матча.
+    func stopWorkout() {
+        #if os(watchOS)
+        Task { _ = await workout.end() }
+        #endif
+    }
 }
