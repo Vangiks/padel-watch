@@ -109,7 +109,7 @@ struct SetupFlowView: View {
     private func resumeSubtitle(_ engine: ScoringEngine) -> String {
         let s = engine.state
         if s.kind == .classic {
-            return "Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)"
+            return String(localized: "Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)")
         } else {
             return "\(s.currentPoints.you) : \(s.currentPoints.opp)"
         }

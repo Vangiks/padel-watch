@@ -1,10 +1,11 @@
 import SwiftUI
 import ScoringEngine
 
-/// Экран итога матча: победитель/ничья + счёт по сетам (классика) или финальные очки (турнир).
-/// Сводка тренировки (длительность/пульс/калории) добавится с интеграцией HealthKit.
+/// Экран итога матча: победитель/ничья + счёт по сетам (классика) или финальные очки (турнир)
+/// + сводка тренировки (длительность/пульс/калории), если workout-сессия завершилась.
 struct MatchEndView: View {
     let state: MatchState
+    let summary: WorkoutSummary?
     let onNewMatch: () -> Void
 
     var body: some View {
@@ -16,6 +17,10 @@ struct MatchEndView: View {
 
                 scoreSummary
 
+                if let summary {
+                    workoutSummary(summary)
+                }
+
                 Button(action: onNewMatch) {
                     Label("Новый матч", systemImage: "arrow.clockwise")
                 }
@@ -26,11 +31,11 @@ struct MatchEndView: View {
     }
 
     private var title: String {
-        if state.isDraw { return "Ничья" }
+        if state.isDraw { return String(localized: "Ничья") }
         switch state.matchWinner {
-        case .you: return "Победа: ты"
-        case .opponent: return "Победа: соперник"
-        case nil: return "Матч окончен"
+        case .you: return String(localized: "Победа: ты")
+        case .opponent: return String(localized: "Победа: соперник")
+        case nil: return String(localized: "Матч окончен")
         }
     }
 
@@ -46,6 +51,28 @@ struct MatchEndView: View {
         } else {
             Text("\(state.currentPoints.you) : \(state.currentPoints.opp)")
                 .font(.system(size: 40, weight: .bold, design: .rounded))
+        }
+    }
+
+    private func workoutSummary(_ s: WorkoutSummary) -> some View {
+        VStack(spacing: 4) {
+            metric(Text("Длительность"), value: formattedDuration(s.duration))
+            if s.heartRateBPM > 0 {
+                metric(Text("Пульс"), value: String(localized: "\(Int(s.heartRateBPM)) уд/мин"))
+            }
+            if s.activeEnergyKcal > 0 {
+                metric(Text("Калории"), value: String(localized: "\(Int(s.activeEnergyKcal)) ккал"))
+            }
+        }
+        .font(.caption2)
+        .foregroundStyle(.secondary)
+    }
+
+    private func metric(_ label: Text, value: String) -> some View {
+        HStack {
+            label
+            Spacer()
+            Text(value).foregroundStyle(.primary)
         }
     }
 }

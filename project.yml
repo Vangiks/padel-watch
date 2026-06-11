@@ -6,6 +6,10 @@ name: PadelWatch
 options:
   bundleIdPrefix: com.example          # ЗАМЕНИ на свой (напр. com.digitalquarters)
   createIntermediateGroups: true
+  developmentLanguage: ru              # язык-источник строк (RU)
+  knownRegions:
+    - ru
+    - en
   deploymentTarget:
     watchOS: "10.0"                     # «свежий watchOS»; при желании поднять до 11/26
 
@@ -36,9 +40,18 @@ targets:
       properties:
         CFBundleDisplayName: Padel
         WKApplication: true             # single-target watchOS app (Xcode 14+)
+        # HealthKit: тексты запроса доступа (обязательны при requestAuthorization).
+        NSHealthShareUsageDescription: "Для подсчёта пульса и калорий во время матча."
+        NSHealthUpdateUsageDescription: "Чтобы сохранить тренировку в приложение «Здоровье»."
+        # Фоновый режим, чтобы workout-сессия продолжалась при опущенной руке.
+        WKBackgroundModes:
+          - workout-processing
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.padelwatch   # ЗАМЕНИ на свой
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         # Подпись на CI — ручная, профили выдаёт fastlane match (см. Fastfile).
         CODE_SIGN_STYLE: Manual
+        # HealthKit-entitlement (требует включённой capability у App ID для device/TestFlight;
+        # на симуляторе работает без провижининга).
+        CODE_SIGN_ENTITLEMENTS: App/PadelWatchApp.entitlements

@@ -1,0 +1,181 @@
+{
+  "sourceLanguage" : "ru",
+  "strings" : {
+    "1 сет" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "1 set" } }
+      }
+    },
+    "3 сета" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "3 sets" } }
+      }
+    },
+    "%lld ккал" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld kcal" } }
+      }
+    },
+    "%lld уд/мин" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld bpm" } }
+      }
+    },
+    "Больше/меньше" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advantage" } }
+      }
+    },
+    "Геймы %lld-%lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Games %lld-%lld" } }
+      }
+    },
+    "Далее" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "До %lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "To %lld" } }
+      }
+    },
+    "Длительность" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Duration" } }
+      }
+    },
+    "Золотой мяч" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Golden point" } }
+      }
+    },
+    "Золотой ×2" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Golden ×2" } }
+      }
+    },
+    "Калории" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calories" } }
+      }
+    },
+    "Классика" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Classic" } }
+      }
+    },
+    "Матч окончен" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Match over" } }
+      }
+    },
+    "Ничья" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Draw" } }
+      }
+    },
+    "Новый матч" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New match" } }
+      }
+    },
+    "Очки" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Points" } }
+      }
+    },
+    "Очки до" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Points to" } }
+      }
+    },
+    "Падел" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Padel" } }
+      }
+    },
+    "Пауза" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Paused" } }
+      }
+    },
+    "Первая подача" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "First serve" } }
+      }
+    },
+    "Победа: соперник" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Opponent wins" } }
+      }
+    },
+    "Победа: ты" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "You win" } }
+      }
+    },
+    "Подаю я" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "I serve" } }
+      }
+    },
+    "Подаёт соперник" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Opponent serves" } }
+      }
+    },
+    "Продолжить" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Resume" } }
+      }
+    },
+    "Продолжить матч" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Resume match" } }
+      }
+    },
+    "Режим ровно" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Deuce mode" } }
+      }
+    },
+    "Решающее на deuce %lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Decisive at deuce %lld" } }
+      }
+    },
+    "Сеты" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets" } }
+      }
+    },
+    "Сеты %lld-%lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets %lld-%lld" } }
+      }
+    },
+    "Сеты %lld-%lld, геймы %lld-%lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets %lld-%lld, games %lld-%lld" } }
+      }
+    },
+    "соперник" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "opponent" } }
+      }
+    },
+    "Турнир" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tournament" } }
+      }
+    },
+    "ты" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "you" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

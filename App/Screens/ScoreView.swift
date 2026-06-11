@@ -9,7 +9,7 @@ struct ScoreView: View {
 
     var body: some View {
         if vm.state.isFinished {
-            MatchEndView(state: vm.state, onNewMatch: onNewMatch)
+            MatchEndView(state: vm.state, summary: vm.summary, onNewMatch: onNewMatch)
         } else {
             scoringScreen
                 .overlay { if vm.isPaused { pauseOverlay } }
