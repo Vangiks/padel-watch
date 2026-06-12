@@ -1,6 +1,66 @@
 {
   "sourceLanguage" : "ru",
   "strings" : {
+    "Дата" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date" } }
+      }
+    },
+    "История" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } }
+      }
+    },
+    "Классика · 1 сет" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Classic · 1 set" } }
+      }
+    },
+    "Классика · 3 сета" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Classic · 3 sets" } }
+      }
+    },
+    "Матч" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Match" } }
+      }
+    },
+    "Не завершён" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not finished" } }
+      }
+    },
+    "Победа: я" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "You won" } }
+      }
+    },
+    "Победа: противник" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Opponent won" } }
+      }
+    },
+    "Пока нет матчей" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No matches yet" } }
+      }
+    },
+    "Пульс" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Heart rate" } }
+      }
+    },
+    "Русский" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Russian" } }
+      }
+    },
+    "Турнир · до %lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tournament · to %lld" } }
+      }
+    },
     "1 сет" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "1 set" } }
