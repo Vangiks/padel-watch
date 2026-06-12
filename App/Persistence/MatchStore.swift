@@ -1,8 +1,9 @@
 import Foundation
-import ScoringEngine
 
-/// Персистентность текущего матча: журнал событий пишется на диск после каждого очка,
+/// Персистентность текущего (активного) матча: `MatchRecord` пишется на диск после каждого очка,
 /// чтобы пережить вылет/перезапуск и предложить «Продолжить матч?».
+/// Это та же запись, что уходит в `HistoryStore` при завершении — отсюда `id`/`startedAt` живут
+/// с момента старта матча.
 struct MatchStore {
     static let shared = MatchStore()
 
@@ -13,9 +14,9 @@ struct MatchStore {
         url = dir.appendingPathComponent("current-match.json")
     }
 
-    func save(_ engine: ScoringEngine) {
+    func save(_ record: MatchRecord) {
         do {
-            let data = try JSONEncoder().encode(engine)
+            let data = try JSONEncoder().encode(record)
             try data.write(to: url, options: .atomic)
         } catch {
             // Персистентность — не критичный путь; не роняем игру из-за ошибки записи.
@@ -23,9 +24,9 @@ struct MatchStore {
         }
     }
 
-    func load() -> ScoringEngine? {
+    func load() -> MatchRecord? {
         guard let data = try? Data(contentsOf: url) else { return nil }
-        return try? JSONDecoder().decode(ScoringEngine.self, from: data)
+        return try? JSONDecoder().decode(MatchRecord.self, from: data)
     }
 
     func clear() {

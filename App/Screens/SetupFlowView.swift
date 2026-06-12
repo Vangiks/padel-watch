@@ -4,11 +4,11 @@ import ScoringEngine
 /// Пошаговый мастер настройки матча:
 /// Формат → (Классика: deuce → сеты | Турнир: очки N) → первая подача → старт.
 struct SetupFlowView: View {
-    let resumable: ScoringEngine?
+    let resumable: MatchRecord?
     let onResume: () -> Void
     let onStart: (MatchSettings) -> Void
 
-    private enum Step: Hashable { case deuce, sets, points, server, settings }
+    private enum Step: Hashable { case deuce, sets, points, server, settings, history }
 
     @State private var path: [Step] = []
     @State private var isClassic = true
@@ -42,7 +42,12 @@ struct SetupFlowView: View {
             }
             .navigationTitle("Vamos")
             .toolbar {
-                // Шестерёнка → Настройки. Смах влево оставлен свободным под будущую историю матчей.
+                // История + Настройки рядом в правом верхнем углу.
+                ToolbarItem(placement: .topBarLeading) {
+                    Button { path.append(.history) } label: {
+                        Image(systemName: "clock.arrow.circlepath")
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { path.append(.settings) } label: {
                         Image(systemName: "gearshape.fill")
@@ -56,6 +61,7 @@ struct SetupFlowView: View {
                 case .points: pointsStep
                 case .server: serverStep
                 case .settings: SettingsView(settings: AppSettings.shared)
+                case .history: HistoryListView()
                 }
             }
         }
@@ -134,8 +140,8 @@ struct SetupFlowView: View {
         onStart(MatchSettings(format: format, firstServer: server))
     }
 
-    private func resumeSubtitle(_ engine: ScoringEngine) -> LocalizedStringKey {
-        let s = engine.state
+    private func resumeSubtitle(_ record: MatchRecord) -> LocalizedStringKey {
+        let s = record.state
         if s.kind == .classic {
             return "Сеты \(s.setsWon.you)-\(s.setsWon.opp), геймы \(s.currentGames.you)-\(s.currentGames.opp)"
         } else {

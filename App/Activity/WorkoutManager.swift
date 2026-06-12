@@ -1,7 +1,9 @@
 import Foundation
 
-/// Сводка завершённой тренировки для экрана итога.
-struct WorkoutSummary: Equatable {
+/// Сводка завершённой тренировки для экрана итога и записи в Историю.
+/// `Codable` — чтобы сохраняться внутри `MatchRecord`.
+/// Замечание: `heartRateBPM` — последний замер пульса, не средний за матч (известное упрощение).
+struct WorkoutSummary: Equatable, Codable {
     var duration: TimeInterval
     var activeEnergyKcal: Double
     var heartRateBPM: Double
