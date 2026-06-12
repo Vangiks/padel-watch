@@ -40,7 +40,7 @@ struct SetupFlowView: View {
                     }
                 }
             }
-            .navigationTitle("Падел")
+            .navigationTitle("Vamos")
             .toolbar {
                 // Шестерёнка → Настройки. Смах влево оставлен свободным под будущую историю матчей.
                 ToolbarItem(placement: .topBarTrailing) {
