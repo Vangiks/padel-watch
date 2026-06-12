@@ -57,8 +57,8 @@ struct MatchEndView: View {
     private func workoutSummary(_ s: WorkoutSummary) -> some View {
         VStack(spacing: 4) {
             metric(Text("Длительность"), Text(formattedDuration(s.duration)))
-            if s.heartRateBPM > 0 {
-                metric(Text("Пульс"), Text("\(Int(s.heartRateBPM)) уд/мин"))
+            if s.avgHeartRateBPM > 0 {
+                metric(Text("Пульс"), Text("\(Int(s.avgHeartRateBPM)) · \(Int(s.maxHeartRateBPM)) уд/мин"))
             }
             if s.activeEnergyKcal > 0 {
                 metric(Text("Калории"), Text("\(Int(s.activeEnergyKcal)) ккал"))

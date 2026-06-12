@@ -16,6 +16,11 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld kcal" } }
       }
     },
+    "%lld · %lld уд/мин" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld · %lld bpm" } }
+      }
+    },
     "%lld уд/мин" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld bpm" } }
@@ -214,6 +219,11 @@
     "Турнир" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Tournament" } }
+      }
+    },
+    "Формат" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Format" } }
       }
     },
     "я" : {

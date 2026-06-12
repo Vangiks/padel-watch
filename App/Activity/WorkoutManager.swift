@@ -2,11 +2,14 @@ import Foundation
 
 /// Сводка завершённой тренировки для экрана итога и записи в Историю.
 /// `Codable` — чтобы сохраняться внутри `MatchRecord`.
-/// Замечание: `heartRateBPM` — последний замер пульса, не средний за матч (известное упрощение).
+/// Пульс — агрегаты за всю активную сессию матча (паузы исключены), а не последний замер.
 struct WorkoutSummary: Equatable, Codable {
     var duration: TimeInterval
     var activeEnergyKcal: Double
-    var heartRateBPM: Double
+    /// Средний пульс за матч — как «Средний пульс» в родной «Тренировке».
+    var avgHeartRateBPM: Double
+    /// Пиковый пульс за матч.
+    var maxHeartRateBPM: Double
 }
 
 #if os(watchOS)
@@ -26,7 +29,8 @@ final class WorkoutManager: NSObject {
     private var builder: HKLiveWorkoutBuilder?
     private var startDate: Date?
 
-    private(set) var heartRate: Double = 0
+    private(set) var averageHeartRate: Double = 0
+    private(set) var maxHeartRate: Double = 0
     private(set) var activeEnergy: Double = 0
     private(set) var isRunning = false
 
@@ -85,11 +89,17 @@ final class WorkoutManager: NSObject {
             return WorkoutSummary(
                 duration: workout?.duration ?? fallbackDuration,
                 activeEnergyKcal: activeEnergy,
-                heartRateBPM: heartRate
+                avgHeartRateBPM: averageHeartRate,
+                maxHeartRateBPM: maxHeartRate
             )
         } catch {
             print("WorkoutManager end error: \(error)")
-            return WorkoutSummary(duration: fallbackDuration, activeEnergyKcal: activeEnergy, heartRateBPM: heartRate)
+            return WorkoutSummary(
+                duration: fallbackDuration,
+                activeEnergyKcal: activeEnergy,
+                avgHeartRateBPM: averageHeartRate,
+                maxHeartRateBPM: maxHeartRate
+            )
         }
     }
 
@@ -105,21 +115,28 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
     nonisolated func workoutBuilder(_ builder: HKLiveWorkoutBuilder,
                                     didCollectDataOf collectedTypes: Set<HKSampleType>) {
         // Извлекаем значения в nonisolated-контексте и переносим на главный актор только Double.
-        var hr: Double?
+        // Пульс — кумулятивные среднее/максимум за всю сессию (HKStatistics накапливает их сам),
+        // а не последний замер: последний колбэк перед end() даёт финальные avg/max за матч.
+        let bpm = HKUnit(from: "count/min")
+        var avgHR: Double?
+        var maxHR: Double?
         var energy: Double?
         for type in collectedTypes {
             guard let quantityType = type as? HKQuantityType,
                   let stats = builder.statistics(for: quantityType) else { continue }
             if quantityType == HKQuantityType(.heartRate) {
-                hr = stats.mostRecentQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+                avgHR = stats.averageQuantity()?.doubleValue(for: bpm)
+                maxHR = stats.maximumQuantity()?.doubleValue(for: bpm)
             } else if quantityType == HKQuantityType(.activeEnergyBurned) {
                 energy = stats.sumQuantity()?.doubleValue(for: .kilocalorie())
             }
         }
-        let hrValue = hr
+        let avgValue = avgHR
+        let maxValue = maxHR
         let energyValue = energy
         Task { @MainActor in
-            if let hrValue { self.heartRate = hrValue }
+            if let avgValue { self.averageHeartRate = avgValue }
+            if let maxValue { self.maxHeartRate = maxValue }
             if let energyValue { self.activeEnergy = energyValue }
         }
     }
