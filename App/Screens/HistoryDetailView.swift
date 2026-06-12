@@ -23,8 +23,8 @@ struct HistoryDetailView: View {
                     metric(Text("Дата"), Text(formattedMatchDate(record.sortDate)))
                     if let w = record.workout {
                         metric(Text("Длительность"), Text(formattedDuration(w.duration)))
-                        if w.heartRateBPM > 0 {
-                            metric(Text("Пульс"), Text("\(Int(w.heartRateBPM)) уд/мин"))
+                        if w.avgHeartRateBPM > 0 {
+                            metric(Text("Пульс"), Text("\(Int(w.avgHeartRateBPM)) · \(Int(w.maxHeartRateBPM)) уд/мин"))
                         }
                         if w.activeEnergyKcal > 0 {
                             metric(Text("Калории"), Text("\(Int(w.activeEnergyKcal)) ккал"))
