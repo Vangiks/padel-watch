@@ -1,5 +1,5 @@
 # Идентификатор приложения. ЗАМЕНИ на свой (должен совпадать с PRODUCT_BUNDLE_IDENTIFIER в project.yml).
-app_identifier("com.example.padelwatch")
+app_identifier("com.vyduikin.vamos")
 
 # Apple ID / Team ID отдельно указывать не нужно:
 # аутентификация идёт через App Store Connect API key (см. Fastfile),

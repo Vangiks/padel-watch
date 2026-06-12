@@ -49,7 +49,7 @@ targets:
           - workout-processing
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.padelwatch   # ЗАМЕНИ на свой
+        PRODUCT_BUNDLE_IDENTIFIER: com.vyduikin.vamos   # при желании поменяй на свой
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         # Подпись на CI — ручная, профили выдаёт fastlane match (см. Fastfile).
         CODE_SIGN_STYLE: Manual
