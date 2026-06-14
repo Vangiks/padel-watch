@@ -1,17 +1,2098 @@
 {
-  "version": "2.11",
+  "version": "2.13",
   "children": [
     {
       "type": "frame",
-      "id": "bi8Au",
-      "x": 533,
-      "y": -3,
-      "name": "Frame",
-      "clip": true,
-      "width": 800,
-      "height": 600,
-      "fill": "#FFFFFF",
-      "layout": "none"
+      "id": "omMlf",
+      "x": 0,
+      "y": 0,
+      "name": "Setup Flow",
+      "gap": 32,
+      "children": [
+        {
+          "type": "frame",
+          "id": "KZp2J",
+          "name": "Splash Screen",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 16,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 22,
+              "id": "XWNWi",
+              "name": "App Logo",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "App/Assets.xcassets/SplashLogo.imageset/SplashLogo.png",
+                "mode": "fill"
+              },
+              "width": 96,
+              "height": 96
+            },
+            {
+              "type": "ellipse",
+              "id": "FVB5j",
+              "name": "Spinner",
+              "innerRadius": 0.7,
+              "sweepAngle": 270,
+              "fill": "#00000000",
+              "width": 24,
+              "height": 24,
+              "stroke": "$text-secondary",
+              "strokeWidth": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "E3dMg",
+          "name": "Setup Main Menu",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            16,
+            12,
+            12,
+            12
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "NTG7z",
+              "name": "Top Bar",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Vq3vX",
+                  "name": "History Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "clock-3",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                },
+                {
+                  "type": "text",
+                  "id": "V62V8v",
+                  "name": "Title",
+                  "fill": "$text-primary",
+                  "content": "Vamos",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "icon",
+                  "id": "OP9j2",
+                  "name": "Settings Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "settings",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "TKy9Q",
+              "name": "Section Label",
+              "fill": "$text-secondary",
+              "content": "ФОРМАТ",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "XuuPo",
+              "name": "Row Classic",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Nur9v",
+                  "name": "Tennis Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "circle-dot",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "C95Y3",
+                  "name": "Label Classic",
+                  "fill": "$text-primary",
+                  "content": "Классика",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pilVO",
+              "name": "Row Tournament",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Jw3c2",
+                  "name": "Trophy Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "trophy",
+                  "library": "lucide",
+                  "fill": "$yellow"
+                },
+                {
+                  "type": "text",
+                  "id": "TBP9I",
+                  "name": "Label Tournament",
+                  "fill": "$text-primary",
+                  "content": "Турнир",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "At0wu",
+          "name": "Deuce Mode",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            16,
+            12,
+            12,
+            12
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "qUixt",
+              "name": "Title",
+              "fill": "$text-primary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Режим ровно",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "kmRMk",
+              "name": "Row Advantage",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "pBSju",
+                  "name": "Row Advantage Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "infinity",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "WUlj0",
+                  "name": "Row Advantage Label",
+                  "fill": "$text-primary",
+                  "content": "Больше/меньше",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vmcvo",
+              "name": "Row Golden Ball",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "IQiAn",
+                  "name": "Row Golden Ball Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "star",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "oJMah",
+                  "name": "Row Golden Ball Label",
+                  "fill": "$text-primary",
+                  "content": "Золотой мяч",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XlmB3",
+              "name": "Row Golden x2",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "x6AX1O",
+                  "name": "Row Golden x2 Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "star_half",
+                  "library": "Material Symbols Rounded",
+                  "weight": 700,
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "G8odPY",
+                  "name": "Row Golden x2 Label",
+                  "fill": "$text-primary",
+                  "content": "Золотой x2",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u6VZvM",
+              "name": "Row Star Point",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Ancm8",
+                  "name": "Row Star Point Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "sparkles",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "GUFPy",
+                  "name": "Row Star Point Label",
+                  "fill": "$text-primary",
+                  "content": "Star Point",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hSYGQ",
+          "name": "Sets Selection",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            16,
+            12,
+            12,
+            12
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "w5buU",
+              "name": "Title",
+              "fill": "$text-primary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Сеты",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "fQu3y",
+              "name": "Row 1 Set",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Tn7y8",
+                  "name": "Row 1 Set Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "hash",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "DlbaU",
+                  "name": "Row 1 Set Label",
+                  "fill": "$text-primary",
+                  "content": "1 сет",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S4Nmr",
+              "name": "Row 3 Sets",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "wMekq",
+                  "name": "Row 3 Sets Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "hash",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "RfeqR",
+                  "name": "Row 3 Sets Label",
+                  "fill": "$text-primary",
+                  "content": "3 сета",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EBEUq",
+          "name": "Points Selection",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            16,
+            12,
+            12,
+            12
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Cct1K",
+              "name": "Title",
+              "fill": "$text-primary",
+              "content": "Очки",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "X0oLg8",
+              "name": "Preset Row",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "V0U3T",
+                  "name": "Preset 16",
+                  "width": 44,
+                  "height": 32,
+                  "fill": "$card-bg",
+                  "cornerRadius": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Rkrfc",
+                      "name": "Preset 16 Label",
+                      "fill": "$text-primary",
+                      "content": "16",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "s9Hcs5",
+                  "name": "Preset 24",
+                  "width": 44,
+                  "height": 32,
+                  "fill": "$card-bg",
+                  "cornerRadius": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ieKoS",
+                      "name": "Preset 24 Label",
+                      "fill": "$text-primary",
+                      "content": "24",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "e6b3jp",
+                  "name": "Preset 32",
+                  "width": 44,
+                  "height": 32,
+                  "fill": "$card-bg",
+                  "cornerRadius": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n2NHU3",
+                      "name": "Preset 32 Label",
+                      "fill": "$text-primary",
+                      "content": "32",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "IFXnh",
+              "name": "Big Number",
+              "fill": "$text-primary",
+              "content": "24",
+              "fontFamily": "Inter",
+              "fontSize": 48,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "b2A6xF",
+              "name": "Next Button",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "$accent",
+              "cornerRadius": 10,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "b9i3g",
+                  "name": "Next Label",
+                  "fill": "#FFFFFF",
+                  "content": "Далее",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "flmlR",
+          "name": "First Serve",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            16,
+            12,
+            12,
+            12
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "f91PBj",
+              "name": "Title",
+              "fill": "$text-primary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Первая подача",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "vjXMW",
+              "name": "Row I Serve",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "j1oYA",
+                  "name": "Row I Serve Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "user",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "X8RtKB",
+                  "name": "Row I Serve Label",
+                  "fill": "$text-primary",
+                  "content": "Подаю я",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ccMLX",
+              "name": "Row Opponent Serves",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 10,
+              "gap": 10,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "idOl5",
+                  "name": "Row Opponent Serves Icon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "users",
+                  "library": "lucide",
+                  "fill": "$accent"
+                },
+                {
+                  "type": "text",
+                  "id": "cudfr",
+                  "name": "Row Opponent Serves Label",
+                  "fill": "$text-primary",
+                  "content": "Подаёт соперник",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rzB13",
+      "x": 0,
+      "y": 310,
+      "name": "Gameplay & Results",
+      "gap": 32,
+      "children": [
+        {
+          "type": "frame",
+          "id": "ZVNHX",
+          "name": "Score Classic",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            28,
+            8,
+            8,
+            8
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "UgSHh",
+              "name": "Status Bar",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kd5gx",
+                  "name": "Sets Label",
+                  "fill": "$text-secondary",
+                  "content": "Сеты 1-0",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "U8Vc2Q",
+                  "name": "Games Wrap",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "i3ZuV",
+                      "name": "Serve Indicator",
+                      "fill": "$text-secondary",
+                      "content": "🎾",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xra7e",
+                      "name": "Games Label",
+                      "fill": "$text-secondary",
+                      "content": "Геймы 3-2",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dGOVX",
+              "name": "Tap Zones",
+              "width": "fill_container",
+              "height": "fill_container",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uEfCf",
+                  "name": "Zone You",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$zone-bg",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nypXU",
+                      "name": "Score You",
+                      "fill": "$text-primary",
+                      "content": "30",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pw7vn",
+                      "name": "Label You",
+                      "fill": "$text-secondary",
+                      "content": "я",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kcRUr",
+                  "name": "Zone Opponent",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$zone-bg",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QQIwB",
+                      "name": "Score Opponent",
+                      "fill": "$text-primary",
+                      "content": "15",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "e5JyKH",
+                      "name": "Label Opponent",
+                      "fill": "$text-secondary",
+                      "content": "противник",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wjQga",
+              "name": "Controls",
+              "width": "fill_container",
+              "gap": 18,
+              "padding": [
+                4,
+                0
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "L2c32r",
+                  "name": "Undo",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "undo-2",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "nfW4Q",
+                  "name": "Pause",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "pause",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "bAWsE",
+                  "name": "Redo",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "redo-2",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "a6PBW",
+          "name": "Score Paused",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            28,
+            8,
+            8,
+            8
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "e5aA8",
+              "name": "Status Bar",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bunN2",
+                  "name": "Sets Label",
+                  "fill": "$text-secondary",
+                  "content": "Сеты 0-0",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "F0Ev8K",
+                  "name": "Games Wrap",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "I5GPk",
+                      "name": "Serve",
+                      "fill": "$text-secondary",
+                      "content": "Геймы 2-1",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aTyO2",
+                      "name": "Ball",
+                      "fill": "$text-secondary",
+                      "content": "🎾",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MghyP",
+              "name": "Tap Zones",
+              "width": "fill_container",
+              "height": "fill_container",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "znlku",
+                  "name": "Zone You",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$zone-bg",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k12D0l",
+                      "name": "Score You",
+                      "opacity": 0.3,
+                      "fill": "$text-primary",
+                      "content": "0",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VQ1zR",
+                      "name": "Label You",
+                      "opacity": 0.3,
+                      "fill": "$text-secondary",
+                      "content": "я",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mZdt8",
+                  "name": "Zone Opponent",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$zone-bg",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PXhd2",
+                      "name": "Score Opponent",
+                      "opacity": 0.3,
+                      "fill": "$text-primary",
+                      "content": "0",
+                      "fontFamily": "Inter",
+                      "fontSize": 40,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OOEHu",
+                      "name": "Label Opponent",
+                      "opacity": 0.3,
+                      "fill": "$text-secondary",
+                      "content": "противник",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fr52k",
+              "name": "Controls",
+              "opacity": 0.3,
+              "width": "fill_container",
+              "gap": 18,
+              "padding": [
+                4,
+                0
+              ],
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "S6pWnr",
+                  "name": "Undo",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "undo-2",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                },
+                {
+                  "type": "icon",
+                  "id": "cdTAQ",
+                  "name": "Pause",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "pause",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "jZ9Gk",
+                  "name": "Redo",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "redo-2",
+                  "library": "lucide",
+                  "fill": "$text-secondary"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WXnS1",
+              "layoutPosition": "absolute",
+              "x": 0,
+              "y": 0,
+              "name": "Pause Overlay",
+              "width": 198,
+              "height": 242,
+              "fill": "$overlay",
+              "layout": "vertical",
+              "gap": 10,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "T7ped",
+                  "name": "Pause Title",
+                  "fill": "$text-primary",
+                  "content": "Пауза",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "NJGVi",
+                  "name": "Resume Button",
+                  "fill": "$accent",
+                  "cornerRadius": 20,
+                  "gap": 6,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "A1PcKP",
+                      "name": "Play Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "play",
+                      "library": "lucide",
+                      "fill": "$text-primary"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Nj22i",
+                      "name": "Resume Label",
+                      "fill": "$text-primary",
+                      "content": "Продолжить",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J5dfmk",
+          "name": "Menu Page",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 16,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "TuBNw",
+              "name": "Menu Title",
+              "fill": "$text-primary",
+              "content": "Меню",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "gFFVQ",
+              "name": "Exit Button",
+              "fill": "#3A1215",
+              "cornerRadius": 20,
+              "gap": 6,
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "f4HLma",
+                  "name": "Exit Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "circle-x",
+                  "library": "lucide",
+                  "fill": "$destructive"
+                },
+                {
+                  "type": "text",
+                  "id": "v5959",
+                  "name": "Exit Label",
+                  "fill": "$destructive",
+                  "content": "Выйти из матча",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k4F8Ed",
+          "name": "Match End",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            32,
+            12,
+            12,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "L6qKhm",
+              "name": "Result Title",
+              "fill": "$text-primary",
+              "content": "Победа: ты",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "svHlR",
+              "name": "Sets Score",
+              "gap": 6,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LXRIw",
+                  "name": "Set 6-4",
+                  "fill": "$text-primary",
+                  "content": "6-4",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "eX6VM",
+                  "name": "Set 3-6",
+                  "fill": "$text-primary",
+                  "content": "3-6",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "VS4wA",
+                  "name": "Set 6-2",
+                  "fill": "$text-primary",
+                  "content": "6-2",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "pCfPP",
+              "name": "Divider",
+              "fill": "$card-bg",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "iCUf1",
+              "name": "Workout Stats",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vm2nS",
+                  "name": "Длительность",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WFZdf",
+                      "name": "Длительность Label",
+                      "fill": "$text-secondary",
+                      "content": "Длительность",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "G3kSM",
+                      "name": "Длительность Value",
+                      "fill": "$text-primary",
+                      "content": "47:23",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "F0ttT",
+                  "name": "Пульс",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gdMID",
+                      "name": "Пульс Label",
+                      "fill": "$text-secondary",
+                      "content": "Пульс",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m01Tl",
+                      "name": "Пульс Value",
+                      "fill": "$text-primary",
+                      "content": "128 · 162 уд/мин",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "baAbY",
+                  "name": "Калории",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l5nLO",
+                      "name": "Калории Label",
+                      "fill": "$text-secondary",
+                      "content": "Калории",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gIeVZ",
+                      "name": "Калории Value",
+                      "fill": "$text-primary",
+                      "content": "384 ккал",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LOabG",
+              "name": "New Match Button",
+              "width": "fill_container",
+              "fill": "$accent",
+              "cornerRadius": 20,
+              "gap": 6,
+              "padding": [
+                10,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "eibxZ",
+                  "name": "New Match Icon",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "refresh-cw",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "text",
+                  "id": "ZJJ0M",
+                  "name": "New Match Label",
+                  "fill": "$text-primary",
+                  "content": "Новый матч",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ddb6h",
+          "name": "History List",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            28,
+            10,
+            10,
+            10
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "OTeOu",
+              "name": "History Title",
+              "fill": "$text-primary",
+              "content": "История",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "nVdoA",
+              "name": "Match 12 июн, 18:30",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                10
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "eO77n",
+                  "name": "Row Top",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XgZbO",
+                      "name": "Outcome",
+                      "fill": "$text-primary",
+                      "content": "Победа: я",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F9ZnJ",
+                      "name": "Score",
+                      "fill": "$text-secondary",
+                      "content": "6-4 6-3",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "j5PBb2",
+                  "name": "Date",
+                  "fill": "$text-secondary",
+                  "content": "12 июн, 18:30",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "bD9nx",
+                  "name": "Format",
+                  "fill": "$text-secondary",
+                  "content": "Классика · 3 сета",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E03QJI",
+              "name": "Match 10 июн, 20:15",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                10
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qbPIh",
+                  "name": "Row Top",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gkcAJ",
+                      "name": "Outcome",
+                      "fill": "$text-primary",
+                      "content": "Победа: противник",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "sF7SN",
+                      "name": "Score",
+                      "fill": "$text-secondary",
+                      "content": "4-6 2-6",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "nq1uk",
+                  "name": "Date",
+                  "fill": "$text-secondary",
+                  "content": "10 июн, 20:15",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "cQAXS",
+                  "name": "Format",
+                  "fill": "$text-secondary",
+                  "content": "Классика · 3 сета",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "eqbzh",
+              "name": "Match 8 июн, 17:00",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                8,
+                10
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bUZo9",
+                  "name": "Row Top",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "zqXXQ",
+                      "name": "Outcome",
+                      "fill": "$text-primary",
+                      "content": "Ничья",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cFrOv",
+                      "name": "Score",
+                      "fill": "$text-secondary",
+                      "content": "18 : 14",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Rslv9",
+                  "name": "Date",
+                  "fill": "$text-secondary",
+                  "content": "8 июн, 17:00",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "DfdXW",
+                  "name": "Format",
+                  "fill": "$text-secondary",
+                  "content": "Турнир · до 32",
+                  "fontFamily": "Inter",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "o3UzNl",
+          "name": "History Detail",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            28,
+            12,
+            12,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "H0V1t",
+              "name": "Detail Title",
+              "fill": "$text-primary",
+              "content": "Победа: я",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "YTqb4",
+              "name": "Score Row",
+              "gap": 6,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ynMo6",
+                  "name": "Set1",
+                  "fill": "$text-primary",
+                  "content": "6-4",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "nw5Nn",
+                  "name": "Set2",
+                  "fill": "$text-primary",
+                  "content": "6-3",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n8YWE",
+              "name": "Format Info",
+              "fill": "$text-secondary",
+              "content": "Классика · 3 сета",
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 9,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "id": "hrDXt",
+              "name": "Divider",
+              "fill": "$card-bg",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "e1nCi",
+              "name": "Match Stats",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UX4tp",
+                  "name": "Дата",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j6OW8",
+                      "name": "Дата L",
+                      "fill": "$text-secondary",
+                      "content": "Дата",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "V1i4xN",
+                      "name": "Дата V",
+                      "fill": "$text-primary",
+                      "content": "12 июн, 18:30",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OHVt5",
+                  "name": "Длительность",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ocnny",
+                      "name": "Длительность L",
+                      "fill": "$text-secondary",
+                      "content": "Длительность",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "GHDqo",
+                      "name": "Длительность V",
+                      "fill": "$text-primary",
+                      "content": "52:10",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "kJwVy",
+                  "name": "Пульс",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hHK7K",
+                      "name": "Пульс L",
+                      "fill": "$text-secondary",
+                      "content": "Пульс",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ViC4i",
+                      "name": "Пульс V",
+                      "fill": "$text-primary",
+                      "content": "125 · 158 уд/мин",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PzE3u",
+                  "name": "Калории",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "LV7fE",
+                      "name": "Калории L",
+                      "fill": "$text-secondary",
+                      "content": "Калории",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QuPYr",
+                      "name": "Калории V",
+                      "fill": "$text-primary",
+                      "content": "412 ккал",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gvpY7",
+          "name": "Settings",
+          "clip": true,
+          "width": 198,
+          "height": 242,
+          "fill": "$bg",
+          "cornerRadius": 36,
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            28,
+            10,
+            10,
+            10
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "XR7SH",
+              "name": "Settings Title",
+              "fill": "$text-primary",
+              "content": "Настройки",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "V7oHri",
+              "name": "Language Row",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 8,
+              "padding": [
+                10,
+                12
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "KHpKf",
+                  "name": "Lang Left",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "cEHIN",
+                      "name": "Globe Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "globe",
+                      "library": "lucide",
+                      "fill": "$accent"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ViWg0",
+                      "name": "Lang Label",
+                      "fill": "$text-primary",
+                      "content": "Язык",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "k33tO",
+                  "name": "Lang Value",
+                  "fill": "$text-secondary",
+                  "content": "Русский",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Dpwl2",
+              "name": "Activity Row",
+              "width": "fill_container",
+              "fill": "$card-bg",
+              "cornerRadius": 8,
+              "padding": [
+                10,
+                12
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JhaTG",
+                  "name": "Act Left",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "EfqP2",
+                      "name": "Heart Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "heart",
+                      "library": "lucide",
+                      "fill": "$destructive"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IMiQB",
+                      "name": "Act Label",
+                      "fill": "$text-primary",
+                      "content": "Активность",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L2YYRG",
+                  "name": "Toggle",
+                  "width": 40,
+                  "height": 24,
+                  "fill": "$green",
+                  "cornerRadius": 12,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "MafhR",
+                      "x": 18,
+                      "y": 2,
+                      "name": "Toggle Knob",
+                      "fill": "$text-primary",
+                      "width": 20,
+                      "height": 20
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "variables": {
+    "bg": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#98989D"
+    },
+    "accent": {
+      "type": "color",
+      "value": "#007AFF"
+    },
+    "yellow": {
+      "type": "color",
+      "value": "#FFD60A"
+    },
+    "destructive": {
+      "type": "color",
+      "value": "#FF3B30"
+    },
+    "card-bg": {
+      "type": "color",
+      "value": "#1C1C1E"
+    },
+    "zone-bg": {
+      "type": "color",
+      "value": "#262626"
+    },
+    "zone-decisive": {
+      "type": "color",
+      "value": "#2E2A00"
+    },
+    "overlay": {
+      "type": "color",
+      "value": "#000000CC"
+    },
+    "green": {
+      "type": "color",
+      "value": "#30D158"
+    }
+  }
 }
